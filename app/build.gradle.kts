@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.fdmgroup.myapplication"
+    namespace = "com.fdmgroup.FitnessTrackerApp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.fdmgroup.myapplication"
+        applicationId = "com.fdmgroup.FitnessTrackerApp"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

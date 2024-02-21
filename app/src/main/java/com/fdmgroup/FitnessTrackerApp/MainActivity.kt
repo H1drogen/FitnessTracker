@@ -11,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.fdmgroup.FitnessTrackerApp.databinding.ActivityMainBinding
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
