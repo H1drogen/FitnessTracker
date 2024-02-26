@@ -12,8 +12,12 @@ Presentation Requirements:
       Ticket Addressal: Teams need to address and demonstrate how they tackled each user story (ticket). Clear explanations and code walkthroughs are encouraged.  
       Challenges Faced: Teams should elaborate on the most challenging aspects encountered during development and how they overcame these challenges.
 
-Project 6: Fitness Tracking App 
+Project 6: Fitness Tracking App
+
 User Story 1: Activity Logging: As a user, I want to log and track my daily physical activities, including exercise, steps, and other fitness-related metrics. 
+
 User Story 2: Goal Setting: As a user, I want to set fitness goals, receive progress updates, and celebrate achievements within the app 
+
 User Story 3: Social Integration: As a user, I want to connect with friends, share achievements, and engage in friendly fitness challenges for motivation. 
+
 User story 4: Data Visualization: As a user, I want the app to present visualizations of my fitness data over time, helping me analyze trends and make informed decisions. 
