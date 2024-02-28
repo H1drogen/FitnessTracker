@@ -6,33 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
 
-    <!-- Scrolling TextView -->
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
-
-        <TextView
-            android:id="@+id/scrollingTextView"
-            android:layout_width="wrap_content"
+        <HorizontalScrollView
+            android:id="@+id/boxContainer"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ellipsize="marquee"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:padding="16dp"
-            android:scrollHorizontally="true"
-            android:singleLine="true"
-            android:text="A long amount of text to test whether or not this side of the page is scrollable or not to later be placed by an array which will contain the goals section of the home page" />
-    </HorizontalScrollView>
+            android:layout_margin="4dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <!-- Small boxes -->
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="1"
+                    android:textSize="18sp"
+                    android:background="@drawable/small_box_background"
+                    android:padding="8dp"
+                    android:layout_margin="4dp"/>
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="2"
+                    android:textSize="18sp"
+                    android:background="@drawable/small_box_background"
+                    android:padding="8dp"
+                    android:layout_margin="4dp"/>
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="3"
+                    android:textSize="18sp"
+                    android:background="@drawable/small_box_background"
+                    android:padding="8dp"
+                    android:layout_margin="4dp"/>
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="4"
+                    android:textSize="18sp"
+                    android:background="@drawable/small_box_background"
+                    android:padding="8dp"
+                    android:layout_margin="4dp"/>
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="5"
+                    android:textSize="18sp"
+                    android:background="@drawable/small_box_background"
+                    android:padding="8dp"
+                    android:layout_margin="4dp"/>
+
+                <!-- Add more small boxes as needed -->
+
+            </LinearLayout>
+        </HorizontalScrollView>
 
     <!-- Button -->
     <Button
-        android:id="@+id/button_first"
+        android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/scrollingTextView"
         android:layout_marginTop="101dp"
+        android:padding="8dp"
         android:text="Add Goal"
         tools:ignore="NotSibling"/>
+
 </RelativeLayout>
