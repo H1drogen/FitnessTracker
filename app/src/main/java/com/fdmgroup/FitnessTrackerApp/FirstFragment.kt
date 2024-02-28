@@ -1,6 +1,5 @@
 package com.fdmgroup.FitnessTrackerApp
 
-import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -36,6 +35,7 @@ class FirstFragment : Fragment() {
 
         binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+
         }
     }
 
