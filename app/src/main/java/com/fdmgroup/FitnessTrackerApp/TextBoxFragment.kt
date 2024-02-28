@@ -6,37 +6,32 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.HorizontalScrollView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.fdmgroup.FitnessTrackerApp.databinding.FragmentFirstBinding
+import java.security.AccessController.getContext
 
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
-class FirstFragment : Fragment() {
+class TextBoxFragment : Fragment() {
 
-    private var _binding: FragmentFirstBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private lateinit var boxContainer: LinearLayout
+    private lateinit var addButton: Button
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_text_box, container, false)
+        boxContainer = view.findViewById(R.id.boxContainer)
+        addButton = view.findViewById(R.id.addButton)
 
-        binding.addButton.setOnClickListener {
+        addButton.setOnClickListener {
             addBox()
         }
 
-        return binding.root
+        return view
     }
 
     private fun addBox() {
@@ -52,12 +47,6 @@ class FirstFragment : Fragment() {
         params.setMargins(4, 4, 4, 4)
         newBox.layoutParams = params
 
-        binding.boxContainer.addView(newBox)
-    }
-
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        boxContainer.addView(newBox)
     }
 }
