@@ -22,4 +22,4 @@ User Story 3: Social Integration: As a user, I want to connect with friends, sha
 
 User story 4: Data Visualization: As a user, I want the app to present visualizations of my fitness data over time, helping me analyze trends and make informed decisions. 
 
-Test
+Test commit2
