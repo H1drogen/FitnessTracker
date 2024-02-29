@@ -51,7 +51,21 @@ class FirstFragment : Fragment() {
         return TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP, dp.toFloat(), resources.displayMetrics
         ).toInt()
+
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.buttonFirst.setOnClickListener {
+            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        }
+        binding.button2.setOnClickListener {
+            findNavController().navigate(R.id.Activity_Logger_to_Calendar)
+        }
+    }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
