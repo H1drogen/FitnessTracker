@@ -35,7 +35,9 @@ class FirstFragment : Fragment() {
 
         binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-
+        }
+        binding.button2.setOnClickListener {
+            findNavController().navigate(R.id.Activity_Logger_to_Calendar)
         }
     }
 
