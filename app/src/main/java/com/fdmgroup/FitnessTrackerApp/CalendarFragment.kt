@@ -11,6 +11,7 @@ import com.fdmgroup.FitnessTrackerApp.databinding.FragmentCalendarBinding
 class CalendarFragment: Fragment() {
     private var _binding: FragmentCalendarBinding? = null
     private val binding get() = _binding!!
+    val selectedDate: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,13 +27,12 @@ class CalendarFragment: Fragment() {
         // Access the CalendarView using the binding
         val calendarView = binding.calendarView
 
-        // Set any additional properties or event listeners for the CalendarView if needed
-        calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
+        calendarView.setOnDateChangeListener { view, year, month, day ->
             // Handle the selected date change
-            // This is just an example, you can implement your logic here
+            val selectedDate = "$day-$month-$year"
             Toast.makeText(
                 requireContext(),
-                "Selected date: $year-$month-$dayOfMonth",
+                "Selected date: $selectedDate",
                 Toast.LENGTH_SHORT
             ).show()
         }
