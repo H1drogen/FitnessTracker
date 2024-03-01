@@ -17,7 +17,7 @@
 
         <action
             android:id="@+id/Activity_Logger_to_Calendar"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/CalendarFragment" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -29,4 +29,11 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/CalendarFragment"
+        android:name="com.fdmgroup.FitnessTrackerApp.CalendarFragment"
+        android:label="Calendar Fragment"
+        tools:layout="@layout/fragment_calendar"
+
+        />
 </navigation>
