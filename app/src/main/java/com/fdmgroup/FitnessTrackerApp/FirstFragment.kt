@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.fdmgroup.FitnessTrackerApp.databinding.FragmentFirstBinding
 
+
 class FirstFragment : Fragment() {
 
     private var _binding: FragmentFirstBinding? = null
@@ -33,6 +34,9 @@ class FirstFragment : Fragment() {
         }
         binding.button2.setOnClickListener {
             findNavController().navigate(R.id.Activity_Logger_to_Calendar)
+        }
+        binding.dataVisualisationButton.setOnClickListener {
+            findNavController().navigate(R.id.action_FirstFragment_to_DataVisualisationFragment)
         }
         setupLongClickListeners()
 

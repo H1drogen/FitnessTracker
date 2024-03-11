@@ -69,7 +69,7 @@
         android:text="Activity Logger" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/dataVisualisationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button2"
