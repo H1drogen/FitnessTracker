@@ -62,11 +62,19 @@
 
     <Button
         android:id="@+id/button2"
+        android:layout_width="164dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addButton"
+        android:layout_marginTop="60dp"
+        android:text="Activity Logger" />
+
+    <Button
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Activity Logger"
-        android:layout_marginTop="60dp"
-        android:layout_below="@id/addButton"/>
+        android:layout_below="@id/addButton"
+        android:layout_marginTop="127dp"
+        android:text="Data Visualisation" />
 
 
 </RelativeLayout>
