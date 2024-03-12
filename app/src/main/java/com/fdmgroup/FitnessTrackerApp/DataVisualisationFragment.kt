@@ -1,10 +1,13 @@
 package com.fdmgroup.FitnessTrackerApp
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import androidx.fragment.app.Fragment
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,8 +36,29 @@ class DataVisualisationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_data_visualisation, container, false)
+        val view = inflater.inflate(R.layout.fragment_data_visualisation, container, false)
+
+        // Initialize Spinner and ArrayAdapter
+        val spinner: Spinner = view.findViewById(R.id.spinner_dropdown)
+        val dropdownItems = arrayOf("Item 1", "Item 2", "Item 3")
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, dropdownItems)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+
+        // Handle Spinner item selection
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parentView: AdapterView<*>?, selectedItemView: View?, position: Int, id: Long) {
+                // Handle the selected item here
+                val selectedItem = dropdownItems[position]
+                // Do something with the selected item
+            }
+
+            override fun onNothingSelected(parentView: AdapterView<*>?) {
+                // Do nothing here
+            }
+        }
+
+        return view
     }
 
     companion object {

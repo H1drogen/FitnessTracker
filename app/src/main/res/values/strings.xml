@@ -5,6 +5,7 @@
     <string name="first_fragment_label">Home Page</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="data_visualisation_fragment_label">Data Visualisation</string>
+    <string name="select_data">Select activity</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
