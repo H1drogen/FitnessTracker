@@ -21,7 +21,15 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        val createTableQuery = ("CREATE TABLE $TABLE_NAME ($COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT, $COLUMN_DATE TEXT, $COLUMN_ACTIVITY TEXT NOT NULL, $COLUMN_WEIGHT INTEGER, $COLUMN_SETS INTEGER, $COLUMN_REPS INTEGER, $COLUMN_DISTANCE INTEGER)")
+        val createTableQuery = ("CREATE TABLE $TABLE_NAME " +
+                "($COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "$COLUMN_DATE TEXT, " +
+                "$COLUMN_ACTIVITY TEXT, " +
+                "$COLUMN_WEIGHT INTEGER, " +
+                "$COLUMN_SETS INTEGER, " +
+                "$COLUMN_REPS INTEGER, " +
+                "$COLUMN_DISTANCE INTEGER)"
+                )
         db.execSQL(createTableQuery)
     }
 

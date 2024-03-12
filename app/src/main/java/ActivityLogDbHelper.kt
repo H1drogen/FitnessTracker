@@ -1,7 +1,9 @@
 import android.annotation.SuppressLint
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.fdmgroup.FitnessTrackerApp.DatabaseHelper
 
 
 class ActivityLogDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -52,9 +54,25 @@ class ActivityLogDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
         db.execSQL(SQL_CREATE_GOALS_TABLE)
     }
 
-    override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+    fun insertData(date: String, activity: String, weight: Int?, sets: Int?, reps: Int?): Long {
+        val values = ContentValues()
+        values.put(COLUMN_DATE, date)
+        values.put(COLUMN_WEIGHT, weight)
+        values.put(COLUMN_ACTIVITY, activity)
+        values.put(COLUMN_SETS, sets)
+        values.put(COLUMN_REPS, reps)
+//        values.put(COLUMN_DISTANCE, distance)
 
+        val db = writableDatabase
+        val id = db.insert(TABLE_ACTIVITY_LOGS, null, values)
+        db.close()
+
+        return id
     }
+
+     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+     }
+
     @SuppressLint("Range")
     fun getDistinctActivities(): List<String> {
         val activities = mutableListOf<String>()

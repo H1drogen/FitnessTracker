@@ -1,5 +1,6 @@
 package com.fdmgroup.FitnessTrackerApp
 
+import ActivityLogDbHelper
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -17,7 +18,7 @@ class CalendarFragment: Fragment() {
     private var _binding: FragmentCalendarBinding? = null
     private val binding get() = _binding!!
     private var selectedDate: String? = null
-    private lateinit var databaseHelper: DatabaseHelper
+    private lateinit var ActivityLogDbHelper: ActivityLogDbHelper
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +34,7 @@ class CalendarFragment: Fragment() {
         // Access the CalendarView using the binding
         val calendarView = binding.calendarView
         val addButton = binding.floatingActionButton2
-        databaseHelper = DatabaseHelper(requireContext())
+        ActivityLogDbHelper = ActivityLogDbHelper(requireContext())
 
         calendarView.setOnDateChangeListener { view, year, month, day ->
             // Handle the selected date change
@@ -67,7 +68,7 @@ class CalendarFragment: Fragment() {
         val buttonSave = popupView.findViewById<Button>(R.id.buttonSave)
         val inputReps = popupView.findViewById<EditText>(R.id.inputReps)
         val inputWeights = popupView.findViewById<EditText>(R.id.inputWeight)
-        val inputDistance = popupView.findViewById<EditText>(R.id.inputDistance)
+//        val inputDistance = popupView.findViewById<EditText>(R.id.inputDistance)
 
         buttonSave.setOnClickListener {
             // Retrieve data from the EditText
@@ -76,10 +77,10 @@ class CalendarFragment: Fragment() {
             val sets = inputSets.text.toString().toIntOrNull()
             val reps = inputReps.text.toString().toIntOrNull()
             val weights = inputWeights.text.toString().toIntOrNull()
-            val distance = inputDistance.text.toString().toIntOrNull()
+//            val distance = inputDistance.text.toString().toIntOrNull()
 
             if (activity.isNotEmpty()) {
-                val id = databaseHelper.insertData(date,activity,weights,sets,reps,distance)
+                val id = ActivityLogDbHelper.insertData(date,activity,weights,sets,reps)
 
                 if (id != -1L) {
                     showToast("Entry added to database with ID: $id")
