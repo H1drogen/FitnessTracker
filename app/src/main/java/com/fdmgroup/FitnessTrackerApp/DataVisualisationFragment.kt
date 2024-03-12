@@ -13,6 +13,8 @@ import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.data.BarEntry
 
 class DataVisualisationFragment : Fragment() {
     override fun onCreateView(
@@ -21,9 +23,10 @@ class DataVisualisationFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_data_visualisation, container, false)
 
-        // Initialize Spinner and TableLayout
+        // Initialize Spinner, TableLayout, and BarChart
         val spinner: Spinner = view.findViewById(R.id.spinner_dropdown)
         val tableLayout: TableLayout = view.findViewById(R.id.table_layout)
+        val barChart: BarChart = view.findViewById(R.id.bar_chart)
 
         // Query distinct activities from the database
         val dbHelper = ActivityLogDbHelper(requireContext())
@@ -45,6 +48,9 @@ class DataVisualisationFragment : Fragment() {
 
                 // Update the table with the retrieved data
                 updateTable(activityLogs, tableLayout)
+
+                // Update the bar chart with the retrieved data
+                updateBarChart(activityLogs, barChart)
             }
 
             override fun onNothingSelected(parentView: AdapterView<*>?) {
@@ -90,5 +96,21 @@ class DataVisualisationFragment : Fragment() {
         cell.setPadding(16, 8, 16, 8)
         cell.setBackgroundResource(if (isHeader) R.drawable.table_header_bg else R.drawable.table_cell_bg)
         return cell
+    }
+    private fun updateBarChart(activityLogs: List<ActivityLog>, barChart: BarChart) {
+        val entries = mutableListOf<BarEntry>()
+
+        // Populate entries with weight and count data
+        val weightCountMap = mutableMapOf<Float, Int>()  // Change the key type to Float
+        for (log in activityLogs) {
+            val weight = log.weight.toFloat()
+            weightCountMap[weight] = weightCountMap.getOrDefault(weight, 0) + 1
+        }
+
+        var index = 0f
+        for ((weight, count) in weightCountMap) {
+            entries.add(BarEntry(index, count.toFloat(), weight.toString()))
+            index += 1
+        }
     }
 }
