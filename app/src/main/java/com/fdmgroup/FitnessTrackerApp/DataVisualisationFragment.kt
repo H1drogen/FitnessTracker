@@ -1,5 +1,6 @@
 package com.fdmgroup.FitnessTrackerApp
 
+import ActivityLogDbHelper
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -40,7 +41,10 @@ class DataVisualisationFragment : Fragment() {
 
         // Initialize Spinner and ArrayAdapter
         val spinner: Spinner = view.findViewById(R.id.spinner_dropdown)
-        val dropdownItems = arrayOf("Item 1", "Item 2", "Item 3")
+
+        val dbHelper = ActivityLogDbHelper(requireContext())
+        val dropdownItems = dbHelper.getDistinctActivities().toTypedArray()
+
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, dropdownItems)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
