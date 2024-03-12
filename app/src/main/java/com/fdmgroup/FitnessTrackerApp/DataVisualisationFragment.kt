@@ -55,8 +55,12 @@ class DataVisualisationFragment : Fragment() {
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parentView: AdapterView<*>?, selectedItemView: View?, position: Int, id: Long) {
                 // Handle the selected item here
-                val selectedItem = dropdownItems[position]
-                // Do something with the selected item
+                val selectedActivity = dropdownItems[position]
+
+                // Retrieve data for the selected activity from the database
+                val activityLogs = dbHelper.getActivityLogsForActivity(selectedActivity)
+
+                // Now you can use the 'activityLogs' list as needed, for example, display it in a RecyclerView
             }
 
             override fun onNothingSelected(parentView: AdapterView<*>?) {
