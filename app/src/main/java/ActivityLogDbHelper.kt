@@ -92,4 +92,32 @@ class ActivityLogDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
 
         db.close()
     }
+
+    // Function to get activity logs for a specific activity
+    @SuppressLint("Range")
+    fun getActivityLogsForActivity(activity: String): List<ActivityLog> {
+        val logs = mutableListOf<ActivityLog>()
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT * FROM $TABLE_ACTIVITY_LOGS WHERE $COLUMN_ACTIVITY = ?", arrayOf(activity))
+
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    val id = cursor.getLong(cursor.getColumnIndex(COLUMN_ID))
+                    val activityName = cursor.getString(cursor.getColumnIndex(COLUMN_ACTIVITY))
+                    val weight = cursor.getDouble(cursor.getColumnIndex(COLUMN_WEIGHT))
+                    val sets = cursor.getInt(cursor.getColumnIndex(COLUMN_SETS))
+                    val reps = cursor.getInt(cursor.getColumnIndex(COLUMN_REPS))
+                    val date = cursor.getString(cursor.getColumnIndex(COLUMN_DATE))
+
+                    val activityLog = ActivityLog(id, activityName, weight, sets, reps, date)
+                    logs.add(activityLog)
+                } while (cursor.moveToNext())
+            }
+        } finally {
+            cursor.close()
+        }
+
+        return logs
+    }
 }
