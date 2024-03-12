@@ -61,7 +61,7 @@ class DataVisualisationFragment : Fragment() {
 
         // Create header row
         val headerRow = TableRow(requireContext())
-        val headerCells = arrayOf("ID", "Activity", "Weight", "Sets", "Reps", "Date")
+        val headerCells = arrayOf("Activity", "Weight", "Sets", "Reps", "Date")
 
         for (header in headerCells) {
             val cell = createTableCell(header, true)
@@ -73,7 +73,7 @@ class DataVisualisationFragment : Fragment() {
         // Populate the table with activity logs
         for (log in activityLogs) {
             val dataRow = TableRow(requireContext())
-            val dataCells = arrayOf(log.id.toString(), log.activity, log.weight.toString(), log.sets.toString(), log.reps.toString(), log.date)
+            val dataCells = arrayOf(log.activity, log.weight.toString(), log.sets.toString(), log.reps.toString(), log.date)
 
             for (data in dataCells) {
                 val cell = createTableCell(data, false)
