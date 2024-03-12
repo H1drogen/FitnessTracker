@@ -2,6 +2,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
+
 class ActivityLogDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
@@ -32,7 +33,7 @@ class ActivityLogDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
             $COLUMN_WEIGHT REAL,
             $COLUMN_SETS INTEGER,
             $COLUMN_REPS INTEGER,
-            $COLUMN_DATE TEXT
+            $COLUMN_DATE DATE
         )
     """.trimIndent()
 
@@ -41,7 +42,7 @@ class ActivityLogDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
         CREATE TABLE $TABLE_GOALS (
             $COLUMN_GOAL_ID INTEGER PRIMARY KEY AUTOINCREMENT,
             $COLUMN_GOAL TEXT NOT NULL,
-            $COLUMN_GOAL_DATE TEXT
+            $COLUMN_GOAL_DATE DATE
         )
     """.trimIndent()
 
