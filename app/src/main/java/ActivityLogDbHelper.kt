@@ -1,3 +1,4 @@
+import android.annotation.SuppressLint
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
@@ -53,5 +54,24 @@ class ActivityLogDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
 
+    }
+    @SuppressLint("Range")
+    fun getDistinctActivities(): List<String> {
+        val activities = mutableListOf<String>()
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT DISTINCT $COLUMN_ACTIVITY FROM $TABLE_ACTIVITY_LOGS", null)
+
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    val activity = cursor.getString(cursor.getColumnIndex(COLUMN_ACTIVITY))
+                    activities.add(activity)
+                } while (cursor.moveToNext())
+            }
+        } finally {
+            cursor.close()
+        }
+
+        return activities
     }
 }
