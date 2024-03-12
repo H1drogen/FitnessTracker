@@ -1,48 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
 
-    <!-- Scrolling TextView -->
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
-
-        <TextView
-            android:id="@+id/scrollingTextView"
-            android:layout_width="wrap_content"
+        <HorizontalScrollView
+            android:id="@+id/boxContainer"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ellipsize="marquee"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:padding="16dp"
-            android:scrollHorizontally="true"
-            android:singleLine="true"
-            android:text="A long amount of text to test whether or not this side of the page is scrollable or not to later be placed by an array which will contain the goals section of the home page" />
-    </HorizontalScrollView>
+            android:layout_margin="4dp">
 
-    <!-- Button -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
 
-    <Button
-        android:id="@+id/button_first"
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    app:cardElevation="4dp"
+                    app:cardCornerRadius="8dp">
+
+                <EditText
+                    android:id="@+id/inputEditText"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="4dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/small_box_background"
+                    android:gravity="center"
+                    android:hint="Enter your goal here"
+                    android:padding="8dp"
+                    android:textColor="@color/black" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addButton"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/scrollingTextView"
-        android:layout_marginTop="105dp"
+        android:layout_below="@id/boxContainer"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="21dp"
+        android:backgroundTint="@color/black"
         android:text="Add Goal"
-        tools:ignore="NotSibling" />
+        android:textColor="@color/white"
+        app:elevation="2dp" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Activity Logger"
-        android:layout_marginTop="170dp"/>
+        android:layout_marginTop="60dp"
+        android:layout_below="@id/addButton"/>
 
 
 </RelativeLayout>
