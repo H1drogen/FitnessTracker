@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_DataVisualisationFragment"
+            app:destination="@id/DataVisualisationFragment" />
 
         <action
             android:id="@+id/Activity_Logger_to_Calendar"
@@ -36,4 +39,14 @@
         tools:layout="@layout/fragment_calendar"
 
         />
+    <fragment
+        android:id="@+id/DataVisualisationFragment"
+        android:name="com.fdmgroup.FitnessTrackerApp.DataVisualisationFragment"
+        android:label="@string/data_visualisation_fragment_label"
+        tools:layout="@layout/fragment_data_visualisation">
+
+        <action
+            android:id="@+id/action_DataVisualisationFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
 </navigation>
