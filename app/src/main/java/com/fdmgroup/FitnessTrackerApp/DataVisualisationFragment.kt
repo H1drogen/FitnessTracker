@@ -73,7 +73,7 @@ class DataVisualisationFragment : Fragment() {
         // Populate the table with activity logs
         for (log in activityLogs) {
             val dataRow = TableRow(requireContext())
-            val dataCells = arrayOf(log.weight.toString(), log.sets.toString(), log.reps.toString(), log.date)
+            val dataCells = arrayOf(log.date, log.weight.toString(), log.sets.toString(), log.reps.toString())
 
             for (data in dataCells) {
                 val cell = createTableCell(data, false)
