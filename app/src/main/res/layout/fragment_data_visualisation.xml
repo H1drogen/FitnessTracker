@@ -16,12 +16,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <LinearLayout
+        android:id="@+id/container_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/spinner_dropdown"
+        android:layout_marginTop="32dp">
+
     <TableLayout
         android:id="@+id/table_layout"
-        android:layout_width="392dp"
-        android:layout_height="191dp"
-        android:layout_below="@id/spinner_dropdown"
-        android:layout_marginTop="32dp"
-        android:stretchColumns="*"></TableLayout>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*">
+    </TableLayout>
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/bar_chart"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="16dp"/>
+
+</LinearLayout>
 
 </FrameLayout>
