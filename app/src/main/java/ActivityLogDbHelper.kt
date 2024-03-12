@@ -15,11 +15,13 @@ class ActivityLogDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
         private const val COLUMN_WEIGHT = "weight"
         private const val COLUMN_SETS = "sets"
         private const val COLUMN_REPS = "reps"
+        private const val COLUMN_DATE = "date"
 
         // Table and column names for goal table
         private const val TABLE_GOALS = "goals"
         private const val COLUMN_GOAL_ID = "_id"
         private const val COLUMN_GOAL = "goal"
+        private const val COLUMN_GOAL_DATE = "date"
     }
 
     // SQL statement to create the activity_logs table
@@ -29,7 +31,8 @@ class ActivityLogDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
             $COLUMN_ACTIVITY TEXT NOT NULL,
             $COLUMN_WEIGHT REAL,
             $COLUMN_SETS INTEGER,
-            $COLUMN_REPS INTEGER
+            $COLUMN_REPS INTEGER,
+            $COLUMN_DATE TEXT
         )
     """.trimIndent()
 
@@ -37,7 +40,8 @@ class ActivityLogDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
     private val SQL_CREATE_GOALS_TABLE = """
         CREATE TABLE $TABLE_GOALS (
             $COLUMN_GOAL_ID INTEGER PRIMARY KEY AUTOINCREMENT,
-            $COLUMN_GOAL TEXT NOT NULL
+            $COLUMN_GOAL TEXT NOT NULL,
+            $COLUMN_GOAL_DATE TEXT
         )
     """.trimIndent()
 
@@ -47,6 +51,6 @@ class ActivityLogDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        // If you need to handle database upgrades in the future, you can implement it here
+
     }
 }
