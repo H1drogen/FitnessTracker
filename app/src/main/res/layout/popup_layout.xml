@@ -7,13 +7,42 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="@color/white">
 
         <EditText
             android:id="@+id/editTextData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter data"/>
+            android:hint="Activity"/>
+
+        <EditText
+            android:id="@+id/inputSets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Number of Sets"/>
+
+        <EditText
+            android:id="@+id/inputReps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Number of Reps"/>
+
+        <EditText
+            android:id="@+id/inputWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Weight in kg"/>
+
+        <EditText
+            android:id="@+id/inputDistance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Distance done in m"/>
 
         <Button
             android:id="@+id/buttonSave"

@@ -63,14 +63,23 @@ class CalendarFragment: Fragment() {
         )
 
         val editTextData = popupView.findViewById<EditText>(R.id.editTextData)
+        val inputSets = popupView.findViewById<EditText>(R.id.inputSets)
         val buttonSave = popupView.findViewById<Button>(R.id.buttonSave)
+        val inputReps = popupView.findViewById<EditText>(R.id.inputReps)
+        val inputWeights = popupView.findViewById<EditText>(R.id.inputWeight)
+        val inputDistance = popupView.findViewById<EditText>(R.id.inputDistance)
 
         buttonSave.setOnClickListener {
             // Retrieve data from the EditText
-            val data = editTextData.text.toString().trim()
+            val activity = editTextData.text.toString().trim()
+            val date = selectedDate.toString()
+            val sets = inputSets.text.toString().toIntOrNull()
+            val reps = inputReps.text.toString().toIntOrNull()
+            val weights = inputWeights.text.toString().toIntOrNull()
+            val distance = inputDistance.text.toString().toIntOrNull()
 
-            if (data.isNotEmpty()) {
-                val id = databaseHelper.insertData(data)
+            if (activity.isNotEmpty()) {
+                val id = databaseHelper.insertData(date,activity,weights,sets,reps,distance)
 
                 if (id != -1L) {
                     showToast("Entry added to database with ID: $id")
@@ -80,7 +89,7 @@ class CalendarFragment: Fragment() {
 
                 popupWindow.dismiss()
             } else {
-                showToast("Please enter data")
+                showToast("Please enter activity")
             }
         }
 
