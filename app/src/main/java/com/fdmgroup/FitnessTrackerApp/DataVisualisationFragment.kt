@@ -16,6 +16,13 @@ import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.data.BarEntry
 
+import android.util.Log
+import com.github.mikephil.charting.components.AxisBase
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import com.github.mikephil.charting.formatter.ValueFormatter
+
 class DataVisualisationFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -97,20 +104,66 @@ class DataVisualisationFragment : Fragment() {
         cell.setBackgroundResource(if (isHeader) R.drawable.table_header_bg else R.drawable.table_cell_bg)
         return cell
     }
+
     private fun updateBarChart(activityLogs: List<ActivityLog>, barChart: BarChart) {
         val entries = mutableListOf<BarEntry>()
 
+        barChart.description.isEnabled = false
+
         // Populate entries with weight and count data
-        val weightCountMap = mutableMapOf<Float, Int>()  // Change the key type to Float
+        val weightCountMap = mutableMapOf<Float, Int>()
         for (log in activityLogs) {
             val weight = log.weight.toFloat()
             weightCountMap[weight] = weightCountMap.getOrDefault(weight, 0) + 1
         }
+        val sortedWeightCountMap = weightCountMap.toSortedMap()
 
         var index = 0f
-        for ((weight, count) in weightCountMap) {
-            entries.add(BarEntry(index, count.toFloat(), weight.toString()))
+        for ((weight, count) in sortedWeightCountMap) {
+            entries.add(BarEntry(index, count.toFloat()))
             index += 1
         }
+
+        // Create BarData for the bar chart
+        val barData = BarData()
+        barData.addDataSet(BarDataSet(entries, "Weight Lifted").apply {
+            setDrawValues(false)
+        })
+
+
+        // Configure the appearance of the chart
+        val xAxis = barChart.xAxis
+        xAxis.position = com.github.mikephil.charting.components.XAxis.XAxisPosition.BOTTOM
+        xAxis.setDrawGridLines(false)
+        xAxis.setDrawAxisLine(false)
+        xAxis.granularity = 1.0f
+
+        val uniqueWeights = activityLogs.map { it.weight.toFloat() }.distinct().sorted()
+
+        xAxis.valueFormatter = IndexAxisValueFormatter(uniqueWeights.map { it.toString() }.toTypedArray())
+
+        val yAxisLeft = barChart.axisLeft
+        yAxisLeft.setDrawGridLines(true)
+        yAxisLeft.setDrawAxisLine(false)
+        yAxisLeft.gridLineWidth = 1.5f
+        yAxisLeft.textSize = 14f
+
+        // Set a custom value formatter for the Y-axis to display only integer values
+        yAxisLeft.valueFormatter = object : ValueFormatter() {
+            override fun getFormattedValue(value: Float): String {
+                return if (value % 1 == 0f) value.toInt().toString() else ""
+            }
+        }
+
+        val yAxisRight = barChart.axisRight
+        yAxisRight.isEnabled = false
+
+        barChart.legend.isEnabled = false
+
+        // Set the BarData to the BarChart
+        barChart.data = barData
+
+        // Invalidate the chart to refresh
+        barChart.invalidate()
     }
 }
