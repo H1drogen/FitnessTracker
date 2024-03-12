@@ -74,4 +74,22 @@ class ActivityLogDbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE
 
         return activities
     }
+
+    fun addDummyData() {
+        val db = writableDatabase
+
+        // Insert sample records into the activity_logs table
+        db.execSQL("INSERT INTO $TABLE_ACTIVITY_LOGS ($COLUMN_ACTIVITY, $COLUMN_WEIGHT, $COLUMN_SETS, $COLUMN_REPS, $COLUMN_DATE) VALUES ('Bench Press', 70.0, 3, 10, '2022-03-12')")
+        // Add more sample records as needed
+
+        db.close()
+    }
+    fun clearAllData() {
+        val db = writableDatabase
+        db.execSQL("DELETE FROM $TABLE_ACTIVITY_LOGS")
+        db.execSQL("DELETE FROM $TABLE_GOALS")
+        // Add more DELETE statements if you have additional tables
+
+        db.close()
+    }
 }

@@ -43,6 +43,8 @@ class DataVisualisationFragment : Fragment() {
         val spinner: Spinner = view.findViewById(R.id.spinner_dropdown)
 
         val dbHelper = ActivityLogDbHelper(requireContext())
+        dbHelper.clearAllData()
+        dbHelper.addDummyData()
         val dropdownItems = dbHelper.getDistinctActivities().toTypedArray()
 
         val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, dropdownItems)
