@@ -2,9 +2,10 @@
     <string name="app_name">My Application</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">Home Page</string>
+    <string name="first_fragment_label">FDM FIT</string>
     <string name="second_fragment_label">Second Fragment</string>
-    <string name="data_visualisation_fragment_label">Data Visualisation</string>
+    <string name="data_visualisation_fragment_label">Analytics</string>
+    <string name="calendar_fragment_label">Activity Logger</string>
     <string name="select_data">Select activity</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>

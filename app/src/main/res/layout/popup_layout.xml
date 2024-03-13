@@ -44,11 +44,15 @@
 <!--            android:inputType="number"-->
 <!--            android:hint="Distance done in m"/>-->
 
-        <Button
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:id="@+id/buttonSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Save"/>
+            android:text="Save"
+            android:backgroundTint="@color/lightblue"
+            android:textColor="@color/white"
+            />
 
     </LinearLayout>
 

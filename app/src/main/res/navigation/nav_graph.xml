@@ -35,7 +35,7 @@
     <fragment
         android:id="@+id/CalendarFragment"
         android:name="com.fdmgroup.FitnessTrackerApp.CalendarFragment"
-        android:label="Calendar Fragment"
+        android:label="@string/calendar_fragment_label"
         tools:layout="@layout/fragment_calendar"
 
         />
