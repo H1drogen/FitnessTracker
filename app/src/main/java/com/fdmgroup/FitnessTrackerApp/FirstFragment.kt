@@ -106,7 +106,7 @@ class FirstFragment : Fragment() {
 
     private fun removeBox(view: View) {
         (binding.boxContainer.getChildAt(0) as LinearLayout).removeView(view)
-        Toast.makeText(requireContext(), "Goal removed", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "Goal Removed", Toast.LENGTH_SHORT).show()
     }
     private fun dpToPx(dp: Int): Int {
         return TypedValue.applyDimension(
