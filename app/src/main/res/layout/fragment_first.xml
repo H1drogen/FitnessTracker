@@ -23,8 +23,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    app:cardElevation="4dp"
-                    app:cardCornerRadius="8dp">
+                    app:cardElevation="10dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardBackgroundColor="@color/white">
 
                 <EditText
                     android:id="@+id/inputEditText"
@@ -52,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/boxContainer"
-        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="15dp"
         android:layout_marginTop="21dp"
         android:backgroundTint="@color/black"
@@ -60,21 +61,34 @@
         android:textColor="@color/white"
         app:elevation="2dp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button2"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="164dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/addButton"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="60dp"
-        android:text="Activity Logger" />
+        android:layout_centerHorizontal="true"
+        android:text="Activity Logger"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        app:elevation="2dp"
+        />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/dataVisualisationButton"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="60dp"
-        android:text="Data Visualisation" />
+        android:text="Data Visualisation"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        app:elevation="2dp"/>
 
 
 </RelativeLayout>
