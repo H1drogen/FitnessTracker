@@ -1,9 +1,8 @@
 Code Camp – Project Briefing  
 
-Overview: We are embarking on a multi-project software development initiative to enhance skills and collaboration among teams. The projects are designed to be language-independent, allowing flexibility in technology choices. Each team, consisting of three members, will be responsible for one of the specified projects.  
 
 General Guidelines:
-Language Independence: The projects should be implemented in a way that is not tied to a specific programming language, allowing teams to choose technologies that align with their expertise.  
+
 Team Composition: Teams are to be formed with three members each. This ensures collaboration, shared responsibilities, and diverse perspectives.  
 Testing: Code must be thoroughly tested to ensure functionality and reliability. Teams should adopt appropriate testing frameworks to achieve high code quality.  
 Reporting: weekly, each team will have to provide an update on their progress during the Code Camps.  
